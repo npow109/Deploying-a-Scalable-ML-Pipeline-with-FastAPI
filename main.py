@@ -26,7 +26,7 @@ class Data(BaseModel):
     hours_per_week: int = Field(..., example=40, alias="hours-per-week")
     native_country: str = Field(..., example="United-States", alias="native-country")
 
-path = "/home/nathan/Deploying-a-Scalable-ML-Pipeline-with-FastAPI/model/model.pkl" # TODO: enter the path for the saved encoder 
+path = "/home/nathan/Deploying-a-Scalable-ML-Pipeline-with-FastAPI/model/encoder.pkl" # TODO: enter the path for the saved encoder 
 encoder = load_model(path)
 
 path = "/home/nathan/Deploying-a-Scalable-ML-Pipeline-with-FastAPI/model/model.pkl" # TODO: enter the path for the saved model 
@@ -64,6 +64,7 @@ async def post_inference(data: Data):
         "sex",
         "native-country",
     ]
+    print("a")
     data_processed, _, _, _ = process_data(
         # your code here
         # use data as data input
@@ -75,5 +76,7 @@ async def post_inference(data: Data):
         training=False,
         encoder=encoder
     )
+
+
     _inference = inference(model, data_processed) # your code here to predict the result using data_processed
     return {"result": apply_label(_inference)}
