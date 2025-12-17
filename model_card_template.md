@@ -13,10 +13,11 @@ The evaluation data came from using data splits.
 ## Metrics
 _Please include the metrics used and your model's performance on those metrics._
 The metrics used are.
-Fbeta score,
-precision,
-and recall.
-The model outputs the slices with all three metrics. If you go through the slice_output.txt you will see that some slices perform very well while others don't
+Fbeta score: 0.6626
+precision: 0.7280,
+recall: 0.6079
+
+The model also outputs the slices with all three metrics in the slice_output.txt. 
 
 ## Ethical Considerations
 An ethical consideration is to use this model knowing that it is not flawless and making sure that people know that no matter what is made using this model, the data comes from 1994.
